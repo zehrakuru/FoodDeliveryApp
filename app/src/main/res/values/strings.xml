@@ -2,9 +2,9 @@
     <string name="app_name">FoodDeliveryApp</string>
     //Headings
     <string name="onboard_heading_one">Order Your Meal</string>
-    <string name="onboard_heading_two">Instant Notifications</string>
+    <string name="onboard_heading_two">Fast Delivery</string>
     <string name="onboard_heading_three">Cashless Payment</string>
-    <string name="onboard_heading_fourth">Pay Anywhere</string>
+    <string name="onboard_heading_fourth">Do Not Forget to Order Your Dessert</string>
 
     //Description
     <string name="onboard_desc_one">Grow your Business By Accepting Card Payments with The New Card Reader</string>

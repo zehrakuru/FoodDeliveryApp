@@ -13,19 +13,21 @@ class ViewPagerAdapter(context: Context) : PagerAdapter() {
     private val mContext = context
     private lateinit var layoutInflater: LayoutInflater
 
-
+    //for every images on onBoarding screens
     private val slideImage = arrayListOf(
         R.drawable.food,
-        R.drawable.food,
-        R.drawable.food,
-        R.drawable.food,
+        R.drawable.delivery,
+        R.drawable.payment,
+        R.drawable.dessert,
     )
+    //for every titles on onBoarding screens
     private val slideTitle = arrayListOf(
         R.string.onboard_heading_one,
         R.string.onboard_heading_two,
         R.string.onboard_heading_three,
         R.string.onboard_heading_fourth
     )
+    //for every descriptions on onBoarding screens
     private val slideDesc = arrayListOf(
         R.string.onboard_desc_one,
         R.string.onboard_desc_two,
