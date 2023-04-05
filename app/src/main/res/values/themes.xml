@@ -12,6 +12,12 @@
         <!-- Status bar color. -->
         <item name="android:statusBarColor">?attr/colorPrimaryVariant</item>
         <!-- Customize your theme here. -->
+        <item name="bottomNavigationStyle">@style/BottomNavigationViewStyle</item>
+    </style>
+    <style name="BottomNavigationViewStyle" parent="Widget.MaterialComponents.BottomNavigationView.Colored">
+        <item name="android:background">@color/background</item>
+        <item name="itemTextColor">#ffb466</item>
+        <item name="itemIconTint">#F5931F</item>
     </style>
     <!-- Launcher theme. -->
     <style name="SplashScreen" parent="Theme.AppCompat.Light.NoActionBar">

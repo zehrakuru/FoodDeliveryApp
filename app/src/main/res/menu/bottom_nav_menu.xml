@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/HomepageFragment"
+        android:icon="@drawable/food_icon"
+        android:title="first" />
+    <item
+        android:id="@+id/BasketFragment"
+        android:icon="@drawable/food_basket"
+        android:title="second" />
+    <item
+        android:id="@+id/OffersFragment"
+        android:icon="@drawable/campaign_icon"
+        android:title="second" />
+</menu>
