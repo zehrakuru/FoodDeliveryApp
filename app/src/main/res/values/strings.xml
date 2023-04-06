@@ -1,8 +1,8 @@
 <resources>
     <string name="app_name">FoodDeliveryApp</string>
     //Headings
-    <string name="onboard_heading_one">Order Your Meal</string>
-    <string name="onboard_heading_two">Fast Delivery</string>
+    <string name="onboard_heading_one">Choose a Tasty Meal</string>
+    <string name="onboard_heading_two">Your Food is on Way with Fast Delivery</string>
     <string name="onboard_heading_three">Cashless Payment</string>
     <string name="onboard_heading_fourth">Do Not Forget to Order Your Dessert</string>
 
