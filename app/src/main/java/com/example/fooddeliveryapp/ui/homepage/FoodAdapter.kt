@@ -10,6 +10,7 @@ import androidx.databinding.DataBindingUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.example.fooddeliveryapp.R
 import com.example.fooddeliveryapp.data.web.model.request.AllFoodRequest
+import com.example.fooddeliveryapp.data.web.service.ImageService
 import com.example.fooddeliveryapp.databinding.FoodCardDesignBinding
 
 class FoodAdapter(private val mContext: Context, private val foodsList: List<AllFoodRequest.Yemekler>, var viewModel : HomepageViewModel) :
@@ -36,6 +37,8 @@ class FoodAdapter(private val mContext: Context, private val foodsList: List<All
         val food = foodsList.get(position)
 
         holder.design.foodObject = food
+
+        food.yemekResimAdi?.let { ImageService().showImage(it, holder.design.imageViewFood) }
 
     }
 
