@@ -12,6 +12,7 @@
     android:layout_height="230dp">
 
     <androidx.cardview.widget.CardView
+        android:id="@+id/foodCard"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_marginRight="5dp"
@@ -21,7 +22,8 @@
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="match_parent"
+            android:background="@color/background">
 
             <ImageView
                 android:id="@+id/imageViewFood"
@@ -30,7 +32,7 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
                 app:srcCompat="@drawable/fishchips"
-                android:scaleType="fitXY"/>
+                android:scaleType="fitCenter"/>
 
             <TextView
                 android:id="@+id/txtViewFoodTitle"
@@ -40,6 +42,7 @@
                 android:layout_marginLeft="8dp"
                 android:fontFamily="@font/poppins_bold"
                 android:text="@{foodObject.yemekAdi}"
+                android:textColor="@color/black"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/imageViewFood" />
 
@@ -50,7 +53,8 @@
                 android:layout_marginStart="8dp"
                 android:layout_marginTop="6dp"
                 android:fontFamily="@font/poppins"
-                android:text="@{foodObject.yemekFiyat}"
+                android:text='@{String.valueOf(foodObject.yemekFiyat) + " TL"}'
+                android:textColor="@color/black"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/txtViewFoodTitle" />
 

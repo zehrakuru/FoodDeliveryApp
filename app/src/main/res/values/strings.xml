@@ -2,15 +2,15 @@
     <string name="app_name">FoodDeliveryApp</string>
     //Headings
     <string name="onboard_heading_one">Choose a Tasty Meal</string>
-    <string name="onboard_heading_two">Your Food is on Way with Fast Delivery</string>
+    <string name="onboard_heading_two">Your Food is on Way</string>
     <string name="onboard_heading_three">Cashless Payment</string>
-    <string name="onboard_heading_fourth">Do Not Forget to Order Your Dessert</string>
+    <string name="onboard_heading_fourth">Do Not Forget to Order Dessert</string>
 
     //Description
     <string name="onboard_desc_one">Grow your Business By Accepting Card Payments with The New Card Reader</string>
-    <string name="onboard_desc_two">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua</string>
-    <string name="onboard_desc_three">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua</string>
-    <string name="onboard_desc_fourth">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua</string>
+    <string name="onboard_desc_two">Lorem ipsum dolor sit amet, consectetur adipiscing elit</string>
+    <string name="onboard_desc_three">Lorem ipsum dolor sit amet, consectetur adipiscing elit</string>
+    <string name="onboard_desc_fourth">Lorem ipsum dolor sit amet, consectetur adipiscing elit</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="btn_next">Next</string>

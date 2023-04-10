@@ -1,10 +1,10 @@
-package com.example.fooddeliveryapp.data.web.model.request
+package com.example.fooddeliveryapp.data.web.model.response
 
 
 import com.google.gson.annotations.SerializedName
 import com.google.gson.annotations.Expose
 
-data class AddMealToBaskerRequest(
+data class DeleteMealFromBasket(
     @SerializedName("message")
     @Expose
     val message: String?,

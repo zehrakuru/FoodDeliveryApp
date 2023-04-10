@@ -9,7 +9,11 @@
         android:id="@+id/homepageFragment"
         android:name="com.example.fooddeliveryapp.ui.homepage.HomepageFragment"
         android:label="fragment_homepage"
-        tools:layout="@layout/fragment_homepage" />
+        tools:layout="@layout/fragment_homepage" >
+        <action
+            android:id="@+id/foodDetailsTransition"
+            app:destination="@id/foodDetailsFragment" />
+    </fragment>
     <fragment
         android:id="@+id/basketFragment"
         android:name="com.example.fooddeliveryapp.ui.basket.BasketFragment"
@@ -20,4 +24,15 @@
         android:name="com.example.fooddeliveryapp.ui.offers.OffersFragment"
         android:label="fragment_offers"
         tools:layout="@layout/fragment_offers" />
+    <fragment
+        android:id="@+id/foodDetailsFragment"
+        android:name="com.example.fooddeliveryapp.ui.homepage.FoodDetailsFragment"
+        android:label="fragment_food_details"
+        tools:layout="@layout/fragment_food_details">
+        <argument
+            android:name="food"
+            android:defaultValue="@null"
+            app:nullable="true"
+            app:argType="com.example.fooddeliveryapp.data.web.model.request.AllFoodRequest$Yemekler" />
+    </fragment>
 </navigation>

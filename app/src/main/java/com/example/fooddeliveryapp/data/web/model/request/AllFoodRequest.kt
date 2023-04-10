@@ -1,8 +1,11 @@
 package com.example.fooddeliveryapp.data.web.model.request
 
+import android.os.Parcelable
 import com.google.gson.annotations.SerializedName
 import com.google.gson.annotations.Expose
+import kotlinx.parcelize.Parcelize
 
+@Parcelize
 data class AllFoodRequest(
     @SerializedName("success")
     @Expose
@@ -10,7 +13,8 @@ data class AllFoodRequest(
     @SerializedName("yemekler")
     @Expose
     val yemekler: List<Yemekler?>?
-) {
+) : Parcelable {
+    @Parcelize
     data class Yemekler(
         @SerializedName("yemek_adi")
         @Expose
@@ -24,5 +28,5 @@ data class AllFoodRequest(
         @SerializedName("yemek_resim_adi")
         @Expose
         val yemekResimAdi: String?
-    )
+    ) : Parcelable
 }

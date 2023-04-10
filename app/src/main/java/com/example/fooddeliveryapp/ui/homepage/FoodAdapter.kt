@@ -1,6 +1,7 @@
 package com.example.fooddeliveryapp.ui.homepage
 
 import android.content.Context
+import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -12,8 +13,9 @@ import com.example.fooddeliveryapp.R
 import com.example.fooddeliveryapp.data.web.model.request.AllFoodRequest
 import com.example.fooddeliveryapp.data.web.service.ImageService
 import com.example.fooddeliveryapp.databinding.FoodCardDesignBinding
+import androidx.navigation.Navigation
 
-class FoodAdapter(private val mContext: Context, private val foodsList: List<AllFoodRequest.Yemekler>, var viewModel : HomepageViewModel) :
+class FoodAdapter(private val mContext: Context, private val foodsList: List<AllFoodRequest.Yemekler>) :
     RecyclerView.Adapter<FoodAdapter.CardDesignObjectsHolder>(){
 
     inner class CardDesignObjectsHolder(design: FoodCardDesignBinding) : RecyclerView.ViewHolder(design.root) {
@@ -39,6 +41,16 @@ class FoodAdapter(private val mContext: Context, private val foodsList: List<All
         holder.design.foodObject = food
 
         food.yemekResimAdi?.let { ImageService().showImage(it, holder.design.imageViewFood) }
+
+        holder.design.foodCard.setOnClickListener {
+            val bundle = Bundle()
+            bundle.apply {
+                putParcelable("food", AllFoodRequest.Yemekler(food.yemekAdi, food.yemekFiyat, food.yemekId, food.yemekResimAdi))
+            }
+            food.yemekResimAdi?.let { ImageService().showImage(it, holder.design.imageViewFood) }
+            Navigation.findNavController(it).navigate(R.id.foodDetailsTransition, bundle)
+
+        }
 
     }
 

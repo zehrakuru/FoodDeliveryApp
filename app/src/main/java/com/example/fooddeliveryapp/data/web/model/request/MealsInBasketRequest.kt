@@ -5,6 +5,9 @@ import com.google.gson.annotations.SerializedName
 import com.google.gson.annotations.Expose
 
 data class MealsInBasketRequest(
+    @SerializedName("sepet_yemekler")
+    @Expose
+    var sepet_yemekler:List<Basket>,
     @SerializedName("message")
     @Expose
     val message: String?,

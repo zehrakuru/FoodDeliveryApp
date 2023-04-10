@@ -13,9 +13,12 @@ import androidx.viewpager.widget.ViewPager
 import android.R.string.no
 import android.content.Intent
 import androidx.appcompat.app.ActionBar
+import androidx.navigation.Navigation
 import com.example.fooddeliveryapp.MainActivity
 import com.example.fooddeliveryapp.databinding.ActivityOnboardingScreenBinding
 import com.example.fooddeliveryapp.ui.ViewPagerAdapter
+import com.example.fooddeliveryapp.ui.homepage.HomepageFragment
+
 class OnboardingScreen : AppCompatActivity() {
 
     private lateinit var binding:ActivityOnboardingScreenBinding
@@ -87,6 +90,9 @@ class OnboardingScreen : AppCompatActivity() {
             } else {
                 binding.slideViewPager.currentItem = CURRENT_SLIDE + 1
             }
+        }
+        binding.skipBtn.setOnClickListener {
+            binding.slideViewPager.currentItem = TOTAL_SLIDE - 1
         }
     }
 

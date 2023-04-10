@@ -19,8 +19,8 @@
 
     <style name="BottomNavigationViewStyle" parent="Widget.MaterialComponents.BottomNavigationView.Colored">
         <item name="android:background">@color/background</item>
-        <item name="itemTextColor">#ffb466</item>
-        <item name="itemIconTint">#F5931F</item>
+        <item name="itemTextColor">#ffa1a1</item>
+        <item name="itemIconTint">#ffa1a1</item>
     </style>
     <!-- Launcher theme. -->
     <style name="SplashScreen" parent="Theme.AppCompat.Light.NoActionBar">
