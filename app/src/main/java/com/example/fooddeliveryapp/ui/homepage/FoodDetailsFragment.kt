@@ -68,9 +68,7 @@ class FoodDetailsFragment : Fragment() {
     }
 
     fun buttonAddToCart(yemek_adi : String?, yemek_resim_adi : String?, yemek_fiyat : String?, yemek_siparis_adet : String) {
-        Toast.makeText(requireContext(), "Button click works", Toast.LENGTH_LONG).show()
         if (yemek_adi != null && yemek_resim_adi != null && yemek_fiyat != null) {
-            Toast.makeText(requireContext(), "Added to the cart", Toast.LENGTH_LONG).show()
             basketViewModel.addFoodToBasket(
                 yemek_adi,
                 yemek_resim_adi,

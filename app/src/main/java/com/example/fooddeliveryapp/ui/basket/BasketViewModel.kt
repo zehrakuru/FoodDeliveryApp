@@ -1,28 +1,24 @@
 package com.example.fooddeliveryapp.ui.basket
 
+import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.fooddeliveryapp.MainActivity
 import com.example.fooddeliveryapp.data.local.database.FoodInBasketRoomDatabase
+import com.example.fooddeliveryapp.data.local.model.FoodsInBasketLocalModel
 import com.example.fooddeliveryapp.data.repo.BasketRepository
 import com.example.fooddeliveryapp.data.web.model.request.Basket
 import kotlinx.coroutines.launch
 
 class BasketViewModel : ViewModel() {
-    var basketList = MutableLiveData<List<Basket>?>()
+    var basketList : LiveData<List<FoodsInBasketLocalModel>>
     lateinit var brepo : BasketRepository
 
     init {
         val dao = FoodInBasketRoomDatabase.getDatabase(context = MainActivity.context!!).FoodsInBasketLocalModelDao()
         brepo = BasketRepository(dao)
         basketList = brepo.getBasket()
-    }
-
-    fun getMealInBasket() {
-        viewModelScope.launch{
-            brepo.getBasketFood()
-        }
     }
 
     fun deleteFoodFromBasket(foodId: Long) {

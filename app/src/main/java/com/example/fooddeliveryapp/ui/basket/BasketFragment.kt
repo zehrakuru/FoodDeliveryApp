@@ -22,10 +22,22 @@ class BasketFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        basketViewModel.basketList.observe(viewLifecycleOwner) {
-            val adapter = it?.let { it1 -> BasketAdapter(requireContext(), it1) }
+        basketViewModel.basketList.observe(viewLifecycleOwner) { list ->
+            val mappedList = list.map {
+                Basket(
+                    yemekId = it.foodId.toString(),
+                    yemekAdi = it.foodName,
+                    yemekResimAdi = it.foodImageName,
+                    yemekFiyat = it.foodPrice.toString(),
+                    yemekSiparisAdet = it.foodAmount
+                )
+            }
+            val adapter = mappedList?.let { it1 -> BasketAdapter(requireContext(), it1, basketViewModel) }
             binding.basketAdapter = adapter
         }
-        basketViewModel.getMealInBasket()
+    }
+
+    fun buttonDeleteFood(foodId : Long) {
+        basketViewModel.deleteFoodFromBasket(foodId)
     }
 }

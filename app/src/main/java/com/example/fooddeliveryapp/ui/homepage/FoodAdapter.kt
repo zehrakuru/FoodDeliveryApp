@@ -49,7 +49,6 @@ class FoodAdapter(private val mContext: Context, private val foodsList: List<All
             }
             food.yemekResimAdi?.let { ImageService().showImage(it, holder.design.imageViewFood) }
             Navigation.findNavController(it).navigate(R.id.foodDetailsTransition, bundle)
-
         }
 
     }

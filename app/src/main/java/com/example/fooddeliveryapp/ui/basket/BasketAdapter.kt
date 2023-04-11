@@ -3,11 +3,12 @@ package com.example.fooddeliveryapp.ui.basket
 import android.content.Context
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import android.widget.ImageView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.fooddeliveryapp.data.web.model.request.Basket
 import com.example.fooddeliveryapp.databinding.BasketCardDesignBinding
 
-class BasketAdapter(private val mContext : Context, private val basketList : List<Basket>) : RecyclerView.Adapter<BasketAdapter.BasketCardDesignHolder> () {
+class BasketAdapter(private val mContext : Context, private val basketList : List<Basket>, private val basketViewModel : BasketViewModel) : RecyclerView.Adapter<BasketAdapter.BasketCardDesignHolder> () {
 
     inner class BasketCardDesignHolder(binding : BasketCardDesignBinding) : RecyclerView.ViewHolder(binding.root) {
         var binding : BasketCardDesignBinding
@@ -31,5 +32,8 @@ class BasketAdapter(private val mContext : Context, private val basketList : Lis
         val basket = basketList.get(position)
         holder.binding.basketObject = basket
 
+        holder.binding.btnDelete.setOnClickListener {
+            basketViewModel.deleteFoodFromBasket(basket.yemekId.toLong())
+        }
     }
 }

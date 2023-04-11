@@ -4,7 +4,6 @@ import androidx.lifecycle.MutableLiveData
 import com.example.fooddeliveryapp.data.web.model.request.AllFoodRequest
 import com.example.fooddeliveryapp.data.web.service.ApiUtils
 import com.example.fooddeliveryapp.data.web.service.MealDaoInterface
-import com.example.fooddeliveryapp.ui.homepage.Foods
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response

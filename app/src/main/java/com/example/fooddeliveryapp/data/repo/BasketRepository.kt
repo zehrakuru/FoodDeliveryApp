@@ -1,6 +1,7 @@
 package com.example.fooddeliveryapp.data.repo
 
 import android.widget.Toast
+import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import com.example.fooddeliveryapp.data.local.dao.FoodsInBasketLocalModelDao
 import com.example.fooddeliveryapp.data.local.model.FoodsInBasketLocalModel
@@ -16,43 +17,9 @@ import retrofit2.Response
 import kotlin.coroutines.coroutineContext
 
 class BasketRepository(val foodsInBasketLocalModelDao: FoodsInBasketLocalModelDao) {
-    var basketList: MutableLiveData<List<Basket>?>
 
-    init {
-        basketList = MutableLiveData()
-    }
-
-
-    fun getBasket(): MutableLiveData<List<Basket>?> {
-        return basketList
-    }
-
-    suspend fun getBasketFood() {
-        /*bdao.mealsInBasket().enqueue(object : Callback<MealsInBasketRequest> {
-            override fun onResponse(
-                call: Call<MealsInBasketRequest>,
-                response: Response<MealsInBasketRequest>
-            ) {
-                val list = response.body()?.sepet_yemekler
-                basketList.value = list
-            }
-
-            override fun onFailure(call: Call<MealsInBasketRequest>, t: Throwable) {
-                t.printStackTrace()
-            }
-        })*/
-        val list = foodsInBasketLocalModelDao.allBasketFoods()
-        val mappedList = list.map {
-            Basket(
-                yemekId = it.foodId.toString(),
-                yemekAdi = it.foodName,
-                yemekResimAdi = it.foodImageName,
-                yemekFiyat = it.foodPrice.toString(),
-                yemekSiparisAdet = it.foodAmount
-            )
-        }
-        basketList.postValue(mappedList)
-
+    fun getBasket(): LiveData<List<FoodsInBasketLocalModel>> {
+        return foodsInBasketLocalModelDao.allBasketFoods()
     }
 
     suspend fun addMealToBasket(
