@@ -1,5 +1,6 @@
 package com.example.fooddeliveryapp
 
+import android.content.Context
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.navigation.fragment.NavHostFragment
@@ -11,6 +12,7 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         setTheme(R.style.Theme_FoodDeliveryApp)
         super.onCreate(savedInstanceState)
+        context = this
         binding = ActivityMainBinding.inflate(layoutInflater)
         val view = binding.root
         setContentView(view)
@@ -21,6 +23,8 @@ class MainActivity : AppCompatActivity() {
             NavigationUI.setupWithNavController(bottomNav, navHostFragment.navController)
         }
 
-
+    }
+    companion object {
+        var context : Context? = null
     }
 }

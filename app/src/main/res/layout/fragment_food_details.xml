@@ -4,13 +4,16 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
-        <variable name= "foodDetailObject" type = "com.example.fooddeliveryapp.ui.homepage.FoodDetailsFragment"/>
+        <variable name= "foodDetailObject" type = "com.example.fooddeliveryapp.data.web.model.request.AllFoodRequest.Yemekler"/>
+        <variable name= "foodDetailsFragment" type = "com.example.fooddeliveryapp.ui.homepage.FoodDetailsFragment"/>
+        <variable name= "basketViewModel" type = "com.example.fooddeliveryapp.ui.basket.BasketViewModel"/>
+
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@color/background"
+        android:background="@drawable/background_blob"
         tools:context=".ui.homepage.FoodDetailsFragment">
 
         <ImageView
@@ -67,7 +70,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="32dp"
-            android:layout_marginTop="24dp"
+            android:layout_marginTop="12dp"
             android:fontFamily="@font/poppins_bold"
             android:text="Description"
             android:textColor="@color/black"
@@ -80,7 +83,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="18dp"
-            android:layout_marginTop="24dp"
+            android:layout_marginTop="12dp"
             android:fontFamily="@font/poppins"
             android:paddingStart="2dp"
             android:paddingEnd="22dp"
@@ -96,8 +99,9 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="32dp"
             android:layout_marginEnd="32dp"
-            android:layout_marginBottom="60dp"
+            android:layout_marginBottom="10dp"
             android:text="Add to Cart"
+            android:backgroundTint="#ffa1a1"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.5"
@@ -111,6 +115,7 @@
             android:layout_marginTop="16dp"
             android:fontFamily="@font/poppins_bold"
             android:text="-"
+            android:backgroundTint="#ffa1a1"
             app:layout_constraintEnd_toStartOf="@+id/txtViewFoodAmount"
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="parent"
@@ -138,6 +143,7 @@
             android:layout_marginEnd="64dp"
             android:fontFamily="@font/poppins_bold"
             android:text="+"
+            android:backgroundTint="#ffa1a1"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toEndOf="@+id/txtViewFoodAmount"
