@@ -1,5 +1,6 @@
 package com.example.fooddeliveryapp.ui.basket
 
+import android.annotation.SuppressLint
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -11,6 +12,7 @@ import androidx.fragment.app.viewModels
 import com.example.fooddeliveryapp.R
 import com.example.fooddeliveryapp.data.web.model.request.Basket
 import com.example.fooddeliveryapp.databinding.FragmentBasketBinding
+import java.time.temporal.TemporalAmount
 
 class BasketFragment : Fragment() {
 
@@ -21,6 +23,7 @@ class BasketFragment : Fragment() {
         return binding.root
     }
 
+    @SuppressLint("SetTextI18n")
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         basketViewModel.basketList.observe(viewLifecycleOwner) { list ->
@@ -33,7 +36,11 @@ class BasketFragment : Fragment() {
                     yemekSiparisAdet = it.foodAmount
                 )
             }
-
+            var totalPrice = 0
+            mappedList.forEach {
+                totalPrice += calculateTotalPriceInBasket(foodAmount = it.yemekSiparisAdet.toInt(), foodPrice = it.yemekFiyat.toInt())
+            }
+            binding.totalPriceInBasket.text = "$totalPrice TL"
             val adapter = mappedList?.let { it1 -> BasketAdapter(requireContext(), it1, basketViewModel) }
             binding.basketAdapter = adapter
         }
@@ -45,6 +52,9 @@ class BasketFragment : Fragment() {
     fun buttonDeleteFood(foodId : Long) {
         basketViewModel.deleteFoodFromBasket(foodId)
     }
-
-
+    fun calculateTotalPriceInBasket(foodAmount: Int, foodPrice: Int): Int {
+        var totalPrice = 0
+        totalPrice = foodPrice * foodAmount
+        return totalPrice
+    }
 }
