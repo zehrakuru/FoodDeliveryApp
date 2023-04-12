@@ -20,6 +20,7 @@ class FoodDetailsFragment : Fragment() {
     private lateinit var design: FragmentFoodDetailsBinding
     private val args: FoodDetailsFragmentArgs by navArgs()
     val basketViewModel : BasketViewModel by viewModels()
+    var amount = 0
 
     @SuppressLint("SetTextI18n")
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
@@ -40,8 +41,6 @@ class FoodDetailsFragment : Fragment() {
             }
         }
 
-        var amount = 0
-
         design.btnMinus.setOnClickListener {
             if (amount > 0) {
                 amount -= 1
@@ -56,7 +55,6 @@ class FoodDetailsFragment : Fragment() {
             amount += 1
             design.txtViewFoodAmount.text = amount.toString()
         }
-
         return design.root
     }
 

@@ -48,7 +48,6 @@ class BasketRepository(val foodsInBasketLocalModelDao: FoodsInBasketLocalModelDa
             foodAmount = yemekSiparisAdet.toString()
         )
         foodsInBasketLocalModelDao.addFoodsInBasket(foodInBasket)
-
     }
 
     suspend fun deleteMealFromBasket(basketYemekId: Long) {
@@ -58,12 +57,14 @@ class BasketRepository(val foodsInBasketLocalModelDao: FoodsInBasketLocalModelDa
                 response: Response<DeleteMealFromBasket>
             ) {
             }
-
             override fun onFailure(call: Call<DeleteMealFromBasket>, t: Throwable) {
             }
         })*/
         foodsInBasketLocalModelDao.deleteFoodsInBasketWithID(basketYemekId)
     }
 
+    suspend fun updateFoodAmountInBasket(basketYemekId: Long, yemekSiparisAdet: Int) {
+        foodsInBasketLocalModelDao.updateFoodAmountInBasket(basketYemekId, yemekSiparisAdet)
+    }
 
 }

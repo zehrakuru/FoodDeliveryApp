@@ -5,6 +5,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.viewModels
 import com.example.fooddeliveryapp.R
@@ -32,12 +33,18 @@ class BasketFragment : Fragment() {
                     yemekSiparisAdet = it.foodAmount
                 )
             }
+
             val adapter = mappedList?.let { it1 -> BasketAdapter(requireContext(), it1, basketViewModel) }
             binding.basketAdapter = adapter
+        }
+        binding.btnOrder.setOnClickListener {
+            Toast.makeText(context, "Your order has been placed!", Toast.LENGTH_SHORT).show()
         }
     }
 
     fun buttonDeleteFood(foodId : Long) {
         basketViewModel.deleteFoodFromBasket(foodId)
     }
+
+
 }

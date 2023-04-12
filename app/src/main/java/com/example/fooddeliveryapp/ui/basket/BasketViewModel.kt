@@ -33,4 +33,10 @@ class BasketViewModel : ViewModel() {
         }
     }
 
+    fun updateFoodAmountInBasket(foodId: Long, addedFoodAmount: Int) {
+        viewModelScope.launch {
+            brepo.updateFoodAmountInBasket(foodId, addedFoodAmount)
+        }
+    }
+
 }
