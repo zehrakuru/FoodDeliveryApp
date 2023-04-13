@@ -13,7 +13,7 @@ import kotlinx.coroutines.launch
 
 class BasketViewModel : ViewModel() {
     var basketList : LiveData<List<FoodsInBasketLocalModel>>
-    lateinit var brepo : BasketRepository
+    var brepo : BasketRepository
 
     init {
         val dao = FoodInBasketRoomDatabase.getDatabase(context = MainActivity.context!!).FoodsInBasketLocalModelDao()

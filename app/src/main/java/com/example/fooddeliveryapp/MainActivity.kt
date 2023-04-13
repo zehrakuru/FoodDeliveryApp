@@ -21,8 +21,17 @@ class MainActivity : AppCompatActivity() {
 
         with(binding) {
             NavigationUI.setupWithNavController(bottomNav, navHostFragment.navController)
-        }
+            //the number should be dynamically
+            setBadgeNumber(getBadgeNumber())
+            }
+    }
 
+   fun setBadgeNumber(number: Int) {
+        binding.bottomNav.getOrCreateBadge(R.id.basketFragment).number = number
+    }
+
+    fun getBadgeNumber(): Int {
+        return binding.bottomNav.getOrCreateBadge(R.id.basketFragment).number
     }
     companion object {
         var context : Context? = null

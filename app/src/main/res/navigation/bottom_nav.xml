@@ -18,7 +18,11 @@
         android:id="@+id/basketFragment"
         android:name="com.example.fooddeliveryapp.ui.basket.BasketFragment"
         android:label="fragment_basket"
-        tools:layout="@layout/fragment_basket" />
+        tools:layout="@layout/fragment_basket" >
+        <action
+            android:id="@+id/trainsitionBasketToHomepage"
+            app:destination="@id/homepageFragment" />
+    </fragment>
     <fragment
         android:id="@+id/offersFragment"
         android:name="com.example.fooddeliveryapp.ui.offers.OffersFragment"

@@ -11,11 +11,13 @@
         android:layout_marginLeft="5dp"
         android:layout_marginBottom="5dp"
         android:layout_marginTop="5dp"
-        app:cardCornerRadius="20dp">
+        app:cardCornerRadius="20dp"
+        android:background="@color/background">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="match_parent"
+            android:background="@color/background">
 
             <ImageView
                 android:id="@+id/imageViewFood"
@@ -32,6 +34,7 @@
                 android:layout_marginTop="12dp"
                 android:fontFamily="@font/poppins_bold"
                 android:text="Taco"
+                android:textColor="@color/black"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.5"
                 app:layout_constraintStart_toStartOf="parent"

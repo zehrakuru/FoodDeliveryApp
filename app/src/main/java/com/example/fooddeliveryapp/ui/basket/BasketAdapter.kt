@@ -6,6 +6,7 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import android.widget.ImageView
 import androidx.recyclerview.widget.RecyclerView
+import com.example.fooddeliveryapp.MainActivity
 import com.example.fooddeliveryapp.data.web.model.request.Basket
 import com.example.fooddeliveryapp.databinding.BasketCardDesignBinding
 import com.example.fooddeliveryapp.ui.homepage.FoodDetailsFragment
@@ -43,6 +44,7 @@ class BasketAdapter(private val mContext : Context,
 
         holder.binding.btnDelete.setOnClickListener {
             basketViewModel.deleteFoodFromBasket(basket.yemekId.toLong())
+            MainActivity().setBadgeNumber(MainActivity().getBadgeNumber()-1)
         }
         holder.binding.btnMinusFood.setOnClickListener {
             amount -= 1

@@ -14,8 +14,9 @@ import com.example.fooddeliveryapp.data.web.model.request.AllFoodRequest
 import com.example.fooddeliveryapp.data.web.service.ImageService
 import com.example.fooddeliveryapp.databinding.FoodCardDesignBinding
 import androidx.navigation.Navigation
+import com.example.fooddeliveryapp.ui.iconFood.FoodLogo
 
-class FoodAdapter(private val mContext: Context, private val foodsList: List<AllFoodRequest.Yemekler>) :
+class FoodAdapter(private val mContext: Context, private var foodsList: List<AllFoodRequest.Yemekler>) :
     RecyclerView.Adapter<FoodAdapter.CardDesignObjectsHolder>(){
 
     inner class CardDesignObjectsHolder(design: FoodCardDesignBinding) : RecyclerView.ViewHolder(design.root) {
@@ -50,6 +51,12 @@ class FoodAdapter(private val mContext: Context, private val foodsList: List<All
             food.yemekResimAdi?.let { ImageService().showImage(it, holder.design.imageViewFood) }
             Navigation.findNavController(it).navigate(R.id.foodDetailsTransition, bundle)
         }
+
+    }
+
+    fun setFilteredList (foodsList: List<AllFoodRequest.Yemekler>) {
+        this.foodsList = foodsList
+        notifyDataSetChanged()
 
     }
 

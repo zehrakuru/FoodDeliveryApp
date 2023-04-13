@@ -8,11 +8,13 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.databinding.DataBindingUtil
+import androidx.fragment.app.FragmentActivity
 import androidx.fragment.app.viewModels
+import androidx.navigation.fragment.NavHostFragment
+import com.example.fooddeliveryapp.MainActivity
 import com.example.fooddeliveryapp.R
 import com.example.fooddeliveryapp.data.web.model.request.Basket
 import com.example.fooddeliveryapp.databinding.FragmentBasketBinding
-import java.time.temporal.TemporalAmount
 
 class BasketFragment : Fragment() {
 
@@ -43,14 +45,22 @@ class BasketFragment : Fragment() {
             binding.totalPriceInBasket.text = "$totalPrice TL"
             val adapter = mappedList?.let { it1 -> BasketAdapter(requireContext(), it1, basketViewModel) }
             binding.basketAdapter = adapter
-        }
-        binding.btnOrder.setOnClickListener {
-            Toast.makeText(context, "Your order has been placed!", Toast.LENGTH_SHORT).show()
-        }
-    }
 
-    fun buttonDeleteFood(foodId : Long) {
-        basketViewModel.deleteFoodFromBasket(foodId)
+            binding.btnOrder.setOnClickListener {
+                if (totalPrice == 0){
+                    Toast.makeText(context, "Your cart is empty!", Toast.LENGTH_SHORT).show()
+                } else {
+                    Toast.makeText(context, "Your order has been placed!", Toast.LENGTH_SHORT).show()
+                    mappedList.forEach {
+                        basketViewModel.deleteFoodFromBasket(foodId = it.yemekId.toLong())
+                    }
+                    MainActivity().setBadgeNumber(0)
+                    val navHostFragment = (activity as FragmentActivity).supportFragmentManager.findFragmentById(R.id.fragmentContainerView) as NavHostFragment
+                    val navController = navHostFragment.navController
+                    navController.navigate(R.id.homepageFragment)
+                }
+            }
+        }
     }
     fun calculateTotalPriceInBasket(foodAmount: Int, foodPrice: Int): Int {
         var totalPrice = 0
