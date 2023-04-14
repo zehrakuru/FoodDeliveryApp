@@ -1,15 +1,17 @@
 package com.example.fooddeliveryapp.ui.basket
 
 import android.annotation.SuppressLint
+import android.app.AlertDialog
 import android.content.Context
 import android.view.LayoutInflater
+import android.view.View
 import android.view.ViewGroup
-import android.widget.ImageView
+import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
 import com.example.fooddeliveryapp.MainActivity
 import com.example.fooddeliveryapp.data.web.model.request.Basket
 import com.example.fooddeliveryapp.databinding.BasketCardDesignBinding
-import com.example.fooddeliveryapp.ui.homepage.FoodDetailsFragment
+import com.google.android.material.snackbar.Snackbar
 
 class BasketAdapter(private val mContext : Context,
                     private val basketList : List<Basket>,
@@ -43,8 +45,20 @@ class BasketAdapter(private val mContext : Context,
         var price = basket.yemekFiyat.toInt()
 
         holder.binding.btnDelete.setOnClickListener {
-            basketViewModel.deleteFoodFromBasket(basket.yemekId.toLong())
-            MainActivity().setBadgeNumber(MainActivity().getBadgeNumber()-1)
+
+            val builder = AlertDialog.Builder(mContext)
+            builder.setTitle("Remove This From Basket?")
+            builder.setMessage("This food will be removed from your basket. Are you sure?")
+            builder.setPositiveButton("Yes"){dialogInterface, which ->
+                basketViewModel.deleteFoodFromBasket(basket.yemekId.toLong())
+                MainActivity().setBadgeNumber(MainActivity().getBadgeNumber()-1)
+            }
+            builder.setNeutralButton("Cancel"){dialogInterface , which ->
+                Toast.makeText(mContext,"Your meal is still in your basket!",Toast.LENGTH_LONG).show()
+            }
+            val alertDialog: AlertDialog = builder.create()
+            alertDialog.setCancelable(false)
+            alertDialog.show()
         }
         holder.binding.btnMinusFood.setOnClickListener {
             amount -= 1
